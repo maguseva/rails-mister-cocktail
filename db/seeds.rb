@@ -16,6 +16,6 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredients = JSON.parse(open(url).read)['drinks']
 
 ingredients.each do |ing|
-  Ingredient.create!(name: ing.values)
+  Ingredient.create!(name: ing.values[0])
 end
 puts 'Finished!'
