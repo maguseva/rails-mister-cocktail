@@ -1,10 +1,10 @@
-<div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+<div>
   <p>
     <strong>Name:</strong>
     <%= @cocktail.name %>
   </p>
 
-  <div id="ingreients">
+  <div id="ingredients">
     <p>Ingredients:</p>
     <ul>
       <% @cocktail.doses.each do |dose| %>
