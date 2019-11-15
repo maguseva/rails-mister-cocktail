@@ -1,24 +1,26 @@
-<div>
-  <p>
-    <strong>Name:</strong>
-    <%= @cocktail.name %>
-  </p>
+<div class="cocktail-page-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo, crop: :fill %>')">
+  <div class="container">
+    <p>
+      <strong>Name:</strong>
+      <%= @cocktail.name %>
+    </p>
 
-  <div id="ingredients">
-    <p>Ingredients:</p>
-    <ul>
-      <% @cocktail.doses.each do |dose| %>
-      <li>
-        <%= dose.ingredient.name %> - <%= dose.description %>
-        <%= link_to '(delete)', dose_path(dose),
-        method: :delete,
-        data: { confirm: "Are you sure you want to delete #{dose.ingredient.name}?" }%>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to 'Add an ingridient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+    <div id="ingredients">
+      <p>Ingredients:</p>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li>
+          <%= dose.ingredient.name %> - <%= dose.description %>
+          <%= link_to '(delete)', dose_path(dose),
+          method: :delete,
+          data: { confirm: "Are you sure you want to delete #{dose.ingredient.name}?" }%>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to 'Add an ingridient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
 
+    </div>
+
+    <%= link_to 'Back', cocktails_path, class: "btn btn-secondary" %>
   </div>
-
-  <%= link_to 'Back', cocktails_path, class: "btn btn-secondary" %>
 </div>
